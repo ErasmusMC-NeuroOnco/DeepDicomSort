@@ -1,5 +1,7 @@
 preprocessing:
     root_dicom_folder: /path/to/initial/dicom/folder/
+    dcm2niix_bin: /usr/local/bin/dcm2niix
+    fslreorient2std_bin: /usr/bin/fsl5.0-fslreorient2std
 
 data_preparation:
     image_size_x: 256

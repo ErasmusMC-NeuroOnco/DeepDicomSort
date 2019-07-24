@@ -8,7 +8,7 @@ def create_directory(dir):
         os.makedirs(dir)
 
 
-def convert_DICOM_to_NIFTI(root_dir):
+def convert_DICOM_to_NIFTI(root_dir, dcm2niix_bin):
     # Convert all dicom files in the directory to nifti
     base_dir = os.path.dirname(os.path.normpath(root_dir))
     out_dir = os.path.join(base_dir, 'NIFTI')
@@ -28,7 +28,7 @@ def convert_DICOM_to_NIFTI(root_dir):
 
             nifti_file_name = '_'.join(sub_directory_names)
 
-            system_command = 'dcm2niix -b n -d 0 -f ' + nifti_file_name + ' -o ' + patient_out_folder + ' ' + root
+            system_command = dcm2niix_bin + ' -b n -d 0 -f ' + nifti_file_name + ' -o ' + patient_out_folder + ' ' + root
             os.system(system_command)
 
     return out_dir
@@ -61,13 +61,13 @@ def extract_4D_images(root_dir):
     return out_4D_file
 
 
-def reorient_to_std(root_dir):
+def reorient_to_std(root_dir, fslreorient_bin):
     for root, dirs, files in os.walk(root_dir):
         for i_file in files:
             if '.nii.gz' in i_file:
                 full_file = os.path.join(root, i_file)
 
-                command = 'fsl5.0-fslreorient2std ' + full_file + ' ' + full_file
+                command = fslreorient_bin + ' ' + full_file + ' ' + full_file
                 os.system(command)
     return
 
