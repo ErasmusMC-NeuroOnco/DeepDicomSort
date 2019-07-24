@@ -1,0 +1,19 @@
+preprocessing:
+    root_dicom_folder: /path/to/initial/dicom/folder/
+
+data_preparation:
+    image_size_x: 256
+    image_size_y: 256
+    image_size_z: 25
+
+training:
+    train_label_file: /path/to/train/label/file.txt
+    output_folder: /path/to/output/folder/
+
+testing:
+    test_label_file: /path/to/test/label/file.txt
+    output_folder: /path/to/output/folder/
+    
+network:
+    batch_size: 32
+    nb_epoch: 100
