@@ -4,7 +4,7 @@ import DICOM_preparation_functions as DPF
 import NIFTI_preparation_functions as NPF
 
 
-with open('./config.yaml', 'r') as ymlfile:
+with open('../config.yaml', 'r') as ymlfile:
     cfg = yaml.load(ymlfile)
 
 x_image_size = cfg['data_preparation']['image_size_x']
@@ -13,6 +13,8 @@ z_image_size = cfg['data_preparation']['image_size_z']
 DICOM_FOLDER = cfg['preprocessing']['root_dicom_folder']
 DCM2NIIX_BIN = cfg['preprocessing']['dcm2niix_bin']
 FSLREORIENT_BIN = cfg['preprocessing']['fslreorient2std_bin']
+FSLVAL_BIN = cfg['preprocessing']['fslval_bin']
+
 
 DEFAULT_SIZE = [x_image_size, y_image_size, z_image_size]
 
@@ -32,14 +34,18 @@ structured_dicom_folder = DPF.sort_DICOM_to_structured_folders(DICOM_FOLDER)
 # Turn the following step on if you have problems running the pipeline
 # It will replaces spaces in the path names, which can sometimes
 # Cause errors with some tools
-#print('Removing spaces from filepaths....')
-#DPF.make_filepaths_safe_for_linux(structured_dicom_folder)
+# print('Removing spaces from filepaths....')
+# DPF.make_filepaths_safe_for_linux(structured_dicom_folder)
 
 print('Checking and splitting for double scans in folders....')
 DPF.split_in_series(structured_dicom_folder)
 
 print('Converting DICOMs to NIFTI....')
 nifti_folder = NPF.convert_DICOM_to_NIFTI(structured_dicom_folder, DCM2NIIX_BIN)
+
+nifti_folder = '/media/DataDisk/TCIA/CPTAC_NEW/NIFTI'
+print('Moving RGB valued images.....')
+NPF.move_RGB_images(nifti_folder, FSLVAL_BIN)
 
 print('Extracting single point from 4D images....')
 images_4D_file = NPF.extract_4D_images(nifti_folder)

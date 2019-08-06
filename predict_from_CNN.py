@@ -5,10 +5,10 @@ import tensorflow as tf
 import yaml
 import os
 
-model_file = './Trained_Models/run1_77_epoch.hdf5'
+model_file = './Trained_Models/model_all_data_96_epoch.hdf5'
 batch_size = 1
 
-with open('./config_DWI_PWI.yaml', 'r') as ymlfile:
+with open('./config.yaml', 'r') as ymlfile:
     cfg = yaml.load(ymlfile)
 
 test_label_file = cfg['testing']['test_label_file']

@@ -5,17 +5,11 @@ from pydicom.errors import InvalidDicomError
 import numpy as np
 
 
-def sort_DICOM_to_structured_folders(root_dir, move_files=False, make_date_folder=False):
+def sort_DICOM_to_structured_folders(root_dir, move_files=False, make_date_folder=True):
     # Given a folder (with possible nested subfolders) of DICOMS, this function will sort all dicoms
     # Into a subject folders, based on modality, date and sequence
     base_dir = os.path.dirname(os.path.normpath(root_dir))
     output_dir = os.path.join(base_dir, 'DICOM_STRUCTURED')
-
-    # Set to True to move files instead of copy
-    move_files = False
-
-    # Set to True to use date folders below subject folders, otherwise sequences will be placed directly underneath subject folder
-    make_date_folder = False
 
     # To keep files seperate from following functions place in specific folder
     if not os.path.exists(output_dir):

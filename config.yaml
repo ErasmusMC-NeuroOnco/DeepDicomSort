@@ -1,7 +1,8 @@
 preprocessing:
-    root_dicom_folder: /path/to/initial/dicom/folder/
+    root_dicom_folder: /path/to/folder/with/all/dicoms
     dcm2niix_bin: /usr/local/bin/dcm2niix
     fslreorient2std_bin: /usr/bin/fsl5.0-fslreorient2std
+    fslval_bin: /usr/bin/fsl5.0-fslval
 
 data_preparation:
     image_size_x: 256
@@ -14,8 +15,11 @@ training:
 
 testing:
     test_label_file: /path/to/test/label/file.txt
-    output_folder: /path/to/output/folder/
+    output_folder: /path/to/output/folder
     
+post_processing:
+    prediction_file: /path/to/prediction/file.csv
+
 network:
     batch_size: 32
     nb_epoch: 100
