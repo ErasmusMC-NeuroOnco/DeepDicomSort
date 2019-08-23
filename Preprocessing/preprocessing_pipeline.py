@@ -36,7 +36,7 @@ structured_dicom_folder = DPF.sort_DICOM_to_structured_folders(DICOM_FOLDER)
 # Cause errors with some tools
 # print('Removing spaces from filepaths....')
 # DPF.make_filepaths_safe_for_linux(structured_dicom_folder)
-
+#
 print('Checking and splitting for double scans in folders....')
 DPF.split_in_series(structured_dicom_folder)
 
@@ -51,6 +51,8 @@ images_4D_file = NPF.extract_4D_images(nifti_folder)
 
 print('Reorient to standard space....')
 NPF.reorient_to_std(nifti_folder, FSLREORIENT_BIN)
+
+nifti_resampled_folder = '/media/DataDisk/ADNI/NIFTI_RESAMPLED'
 
 print('Resampling images....')
 nifti_resampled_folder = NPF.resample_images(nifti_folder, DEFAULT_SIZE)

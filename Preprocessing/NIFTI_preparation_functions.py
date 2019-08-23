@@ -26,7 +26,8 @@ def convert_DICOM_to_NIFTI(root_dir, dcm2niix_bin):
     delete_directory(temp_dir)
 
     for root, dirs, files in os.walk(root_dir):
-        if len(files) > 0 and 'MR' in root:
+        # if len(files) > 0 and 'MR' in root:
+        if len(files) > 0:
             create_directory(temp_dir)
             patient_ID = root.split(root_dir)[1]
             patient_ID = patient_ID.split(os.sep)[1]
@@ -213,7 +214,7 @@ def create_label_file(root_dir, images_4D_file):
 
                     file_location = os.path.join(root, i_file)
 
-                    out_elements = [file_location, '99', is_4D]
+                    out_elements = [file_location, '0', is_4D]
 
                     the_file.write('\t'.join(out_elements) + '\n')
 
