@@ -52,8 +52,6 @@ images_4D_file = NPF.extract_4D_images(nifti_folder)
 print('Reorient to standard space....')
 NPF.reorient_to_std(nifti_folder, FSLREORIENT_BIN)
 
-nifti_resampled_folder = '/media/DataDisk/ADNI/NIFTI_RESAMPLED'
-
 print('Resampling images....')
 nifti_resampled_folder = NPF.resample_images(nifti_folder, DEFAULT_SIZE)
 
