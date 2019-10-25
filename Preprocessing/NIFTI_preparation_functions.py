@@ -40,7 +40,7 @@ def convert_DICOM_to_NIFTI(root_dir, dcm2niix_bin):
 
             nifti_file_name = '_'.join(sub_directory_names)
 
-            system_command = dcm2niix_bin + ' -a y -b n -d 0 -e n -f ' + nifti_file_name + ' -g n -i n -l y -w 0 -o ' + temp_dir + ' ' + root
+            system_command = dcm2niix_bin + ' -6 -z y -a y -b n -d 0 -e n -f ' + nifti_file_name + ' -g n -i n -l y -w 0 -o ' + temp_dir + ' ' + root
             os.system(system_command)
 
             # dcm2niix doesnt always use the specified file name, this is a work around
