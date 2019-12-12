@@ -37,3 +37,8 @@ The label corresponding to each scan type is shown in the table below:
 | 5  | Diffusion weighted imaging |
 | 6  | Derived imaging |
 | 7  | Perfusion weighted-DSC|
+
+Once testing is the done, in the config the file with the predicted labels can be specified. 
+The dataset can then be automatically sorted using either `Sort_to_BIDS.py`, which will sort the dataset into the BIDS format (and thus will only sort the NIFTI files), or `Rename_folders_from_predictions.py`, which will sort the whole DICOM dataset.
+
+`Rename_folders_from_predictions.py` uses a structure used internally at our institute, but it can also be used as an inspiration for your own structure.
