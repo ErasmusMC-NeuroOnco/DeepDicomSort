@@ -73,12 +73,14 @@ def get_image_orientation(dicom_slice):
 unique_names = np.unique(file_names)
 unique_predictions = np.zeros([len(unique_names), 1])
 
+print(file_names)
+
 for root, dir, files in os.walk(structured_dicom_folder):
     if len(files) > 0:
         dir_name = root.split(structured_dicom_folder)[1][1:]
         patient_ID = dir_name.split('/')[0]
         sub_dir_name = dir_name.split('/')[1:len(dir_name.split('/'))-1]
-        dir_name = dir_name.replace('/', '_')
+        dir_name = dir_name.replace('/', '__')
         indices = np.argwhere([dir_name in i_result_name for i_result_name in file_names])
         if len(indices) != 0:
             predictions = prediction_results[indices].ravel()

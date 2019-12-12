@@ -175,7 +175,7 @@ def slice_images(root_dir):
                 image = sitk.ReadImage(os.path.join(root, i_file), sitk.sitkFloat32)
 
                 for i_i_slice in range(0, image.GetDepth()):
-                    out_file_name = os.path.join(out_dir, patient_ID + '_' + file_name + '_' + str(i_i_slice) + '.nii.gz')
+                    out_file_name = os.path.join(out_dir, patient_ID + '__' + file_name + '_' + str(i_i_slice) + '.nii.gz')
                     i_slice = image[:, :, i_i_slice]
                     sitk.WriteImage(i_slice, out_file_name)
 
