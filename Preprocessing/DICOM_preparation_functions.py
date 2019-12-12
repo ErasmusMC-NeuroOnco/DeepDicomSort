@@ -5,7 +5,7 @@ from pydicom.errors import InvalidDicomError
 import numpy as np
 
 
-def sort_DICOM_to_structured_folders(root_dir, move_files=False, make_date_folder=True):
+def sort_DICOM_to_structured_folders(root_dir, move_files=False):
     # Given a folder (with possible nested subfolders) of DICOMS, this function will sort all dicoms
     # Into a subject folders, based on modality, date and sequence
     base_dir = os.path.dirname(os.path.normpath(root_dir))
@@ -27,14 +27,13 @@ def sort_DICOM_to_structured_folders(root_dir, move_files=False, make_date_folde
                     patient_ID = dicom_data.PatientID
                     study_date = dicom_data.StudyDate
                     scan_modality = dicom_data.Modality
+                    study_instance_UID = dicom_data.StudyInstanceUID
                     series_instance_UID = dicom_data.SeriesInstanceUID
 
-                    if make_date_folder:
-                        dicom_output_folder = os.path.join(output_dir, patient_ID,
-                                                           study_date, scan_modality, series_instance_UID)
-                    else:
-                        dicom_output_folder = os.path.join(output_dir, patient_ID,
-                                                           scan_modality, series_instance_UID)
+                    dicom_output_folder = os.path.join(output_dir, patient_ID,
+                                                       study_date, scan_modality,
+                                                       study_instance_UID,
+                                                       series_instance_UID)
 
                     if not os.path.exists(dicom_output_folder):
                         os.makedirs(dicom_output_folder)

@@ -2,8 +2,9 @@ import os
 import yaml
 import DICOM_preparation_functions as DPF
 import NIFTI_preparation_functions as NPF
+import time
 
-
+start_time = time.time()
 with open('../config.yaml', 'r') as ymlfile:
     cfg = yaml.load(ymlfile)
 
@@ -63,3 +64,7 @@ NPF.rescale_image_intensity(nifti_slices_folder)
 
 print('Creating label file....')
 NPF.create_label_file(nifti_slices_folder, images_4D_file)
+
+elapsed_time = time.time() - start_time
+
+print(elapsed_time)

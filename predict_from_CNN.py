@@ -5,7 +5,7 @@ import tensorflow as tf
 import yaml
 import os
 
-model_file = './Trained_Models/model_all_brain_tumor_data_run_1_96_epochs.hdf5'
+model_file = './Trained_Models/model_all_brain_tumor_data.hdf5'
 batch_size = 1
 
 with open('./config.yaml', 'r') as ymlfile:

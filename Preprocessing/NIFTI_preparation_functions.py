@@ -38,7 +38,7 @@ def convert_DICOM_to_NIFTI(root_dir, dcm2niix_bin):
             sub_directory_names = root.split(os.path.join(root_dir, patient_ID))[1]
             sub_directory_names = sub_directory_names.split(os.sep)[1:]
 
-            nifti_file_name = '_'.join(sub_directory_names)
+            nifti_file_name = '__'.join(sub_directory_names)
 
             system_command = dcm2niix_bin + ' -6 -z y -a y -b n -d 0 -e n -f ' + nifti_file_name + ' -g n -i n -l y -w 0 -o ' + temp_dir + ' ' + root
             os.system(system_command)
