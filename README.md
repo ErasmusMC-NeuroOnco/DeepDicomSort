@@ -39,7 +39,7 @@ The label corresponding to each scan type is shown in the table below:
 | 7  | Perfusion weighted-DSC|
 
 Once testing is the done, in the config the file with the predicted labels can be specified. 
-The dataset can then be automatically sorted using either `Sort_to_BIDS.py`, which will sort the dataset into the BIDS format (and thus will only sort the NIFTI files), or `Rename_folders_from_predictions.py`, which will sort the whole DICOM dataset.
+The dataset can then be automatically sorted using either `Sort_to_BIDS.py`, which will sort the dataset into the [BIDS format](https://bids.neuroimaging.io/) (and thus will only sort the NIFTI files), or `Rename_folders_from_predictions.py`, which will sort the whole DICOM dataset.
 
 When sorting to BIDS format derived images and perfusion weighted images are not sort, as they are not supported by BIDS.
 `Rename_folders_from_predictions.py` uses a structure used internally at our institute, but it can also be used as an inspiration for your own structure.
