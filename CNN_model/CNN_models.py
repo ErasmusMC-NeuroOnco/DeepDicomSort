@@ -41,10 +41,9 @@ def DDS_model(img_rows, img_cols, img_channels):
     merged_inputs = concatenate([flattened_CNN_output, dicom_tag_dropped])
 
     dropout_inputs = Dropout(0.4)(merged_inputs)
-    dense1 = Dense(1024)(dropout_inputs)
-    dense2 = Dense(1024, activation='relu')(dense1)
+    dense = Dense(1024, activation='relu')(dropout_inputs)
 
-    dropout_dense = Dropout(0.4)(dense2)
+    dropout_dense = Dropout(0.4)(dense)
 
     predictions = Dense(8, activation='softmax')(dropout_dense)
 
