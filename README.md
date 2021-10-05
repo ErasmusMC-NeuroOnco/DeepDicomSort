@@ -24,7 +24,7 @@ Set the root folder containg the DICOM folders to be organized in the config.yam
 After this, go to the preprocessing folder and run `python3 preprocessing_pipeline.py`, this will then perform all the necessary steps.
 
 Once the pre-processing is done, the config.yaml file can be updated with the label file that has been produced (in the DICOM root folder, under a directory called 'DATA'). If you just want to run DeepDicomSort to make a prediction, only the testing settings need to be updated.
-After updating the testing settings, one can then run `python3 predict_from_CCN.py` which will produce a file with the predicted class for each scan.
+After updating the testing settings, one can then run `python3 predict_from_CNN.py` which will produce a file with the predicted class for each scan.
 The label corresponding to each scan type is shown in the table below:
 
 | Label  | Scan type |
