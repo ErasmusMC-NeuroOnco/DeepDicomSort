@@ -2,7 +2,12 @@
 
 DeepDicomSort can recognize different scan types (pre-contrast T1-weighted, post-contrast T1-weighted, T2-weighted, Proton Density-weighted, T2w-FLAIR-weighted, diffusion weighted imaging, perfusion weighted DSC and derived imaging) of brain tumor scans.
 It does this using a CNN.
-For more information, see the paper:
+
+For more information, see the paper: https://doi.org/10.1007/s12021-020-09475-7
+
+If you use DeepDicomSort in your work, please cite the following: van der Voort, S.R., Smits, M., Klein, S. et al. DeepDicomSort: An Automatic Sorting Algorithm for Brain Magnetic Resonance Imaging Data. Neuroinform 19, 159–184 (2021). https://doi.org/10.1007/s12021-020-09475-7
+
+
 
 
 
