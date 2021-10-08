@@ -28,8 +28,8 @@ SimpleITK==1.2.0
 six>=1.10.0
 sklearn==0.0
 soupsieve==1.9.1
-tensorboard>=1.14.0
-tensorflow>=1.14.0
+tensorboard==1.14.0
+tensorflow==1.14.0
 termcolor==1.1.0
 virtualenv==16.0.0
 Werkzeug==0.14.1
