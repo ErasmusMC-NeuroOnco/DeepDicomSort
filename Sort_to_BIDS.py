@@ -3,7 +3,6 @@ import os
 import shutil
 import yaml
 import json
-from pathlib import Path
 
 BIDS_VERSION = 'v1.2.1'
 
@@ -24,7 +23,7 @@ nifti_dir = os.path.join(base_dir, 'NIFTI')
 base_dir = os.path.dirname(os.path.normpath(root_dicom_folder))
 root_out_folder = os.path.join(base_dir, 'BIDS_SORTED')
 
-Path(root_out_folder).mkdir(exist_ok=True)
+os.makedirs(root_out_folder, exist_ok=True)
 
 predictions = np.loadtxt(prediction_file, dtype=np.str)
 
