@@ -20,6 +20,8 @@ base_dir = os.path.dirname(os.path.normpath(root_dicom_folder))
 structured_dicom_folder = os.path.join(base_dir, 'DICOM_STRUCTURED')
 root_out_folder = os.path.join(base_dir, 'DICOM_SORTED')
 
+os.makedirs(root_out_folder, exist_ok=True)
+
 predictions = np.loadtxt(prediction_file, dtype=np.str)
 
 prediction_names = ['T1', 'T1GD', 'T2', 'PD', 'FLAIR', 'DWI_DWI', 'DERIVED', 'PWI_DSC', 'UNKNOWN']

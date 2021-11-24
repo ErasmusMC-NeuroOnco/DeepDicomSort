@@ -23,6 +23,8 @@ nifti_dir = os.path.join(base_dir, 'NIFTI')
 base_dir = os.path.dirname(os.path.normpath(root_dicom_folder))
 root_out_folder = os.path.join(base_dir, 'BIDS_SORTED')
 
+os.makedirs(root_out_folder, exist_ok=True)
+
 predictions = np.loadtxt(prediction_file, dtype=np.str)
 
 prediction_names = ['T1', 'T1GD', 'T2', 'PD', 'FLAIR', 'DWI_DWI', 'DERIVED', 'PWI_DSC', 'UNKNOWN']
