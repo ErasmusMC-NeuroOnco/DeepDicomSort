@@ -2,7 +2,7 @@ absl-py==0.2.2
 astor==0.7.1
 certifi==2019.3.9
 chardet==3.0.4
-coremltools==2.0
+coremltool==2.0
 cycler==0.10.0
 enum34==1.1.6
 gast==0.2.0
@@ -28,8 +28,8 @@ SimpleITK==1.2.0
 six==1.10.0
 sklearn==0.0
 soupsieve==1.9.1
-tensorboard==1.12.2
-tensorflow==1.12.3
+tensorboard==1.14.0
+tensorflow==1.14.0
 termcolor==1.1.0
 virtualenv==16.0.0
 Werkzeug==0.14.1

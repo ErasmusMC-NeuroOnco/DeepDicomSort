@@ -17,10 +17,18 @@ DeepDicomSort requires the following:
 - dcm2niix (https://github.com/rordenlab/dcm2niix), version v1.0.20190410 was used.
 - fsl 5.0 (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation)
 
-After install python 3.6.7, install the required packages: 
+After install python 3.6.7, install the required packages:
 `pip -r install requirements.txt`
 
 The location of the dcm2niix bin and fsl5.0-fslreorient2std bin can be set in the config.yaml file.
+
+### Using python 3.7.x
+
+DeepDicomSort can also run using Python 3.7.x, although this is not the original python version that DeepDicomSort was designed in.
+
+If you want to use Python 3.7.x you need to use a different requirements file as tensorflow version 1.12.X is not available in Python 3.7.x. To install the correct requirements:
+
+`pip -r install requirements_python37.txt`
 
 ## Running DeepDicomSort
 
@@ -29,7 +37,7 @@ Set the root folder containg the DICOM folders to be organized in the config.yam
 After this, go to the preprocessing folder and run `python3 preprocessing_pipeline.py`, this will then perform all the necessary steps.
 
 Once the pre-processing is done, the config.yaml file can be updated with the label file that has been produced (in the DICOM root folder, under a directory called 'DATA'). If you just want to run DeepDicomSort to make a prediction, only the testing settings need to be updated.
-After updating the testing settings, one can then run `python3 predict_from_CCN.py` which will produce a file with the predicted class for each scan.
+After updating the testing settings, one can then run `python3 predict_from_CNN.py` which will produce a file with the predicted class for each scan.
 The label corresponding to each scan type is shown in the table below:
 
 | Label  | Scan type |
@@ -43,7 +51,7 @@ The label corresponding to each scan type is shown in the table below:
 | 6  | Derived imaging |
 | 7  | Perfusion weighted-DSC|
 
-Once testing is the done, in the config the file with the predicted labels can be specified. 
+Once testing is the done, in the config the file with the predicted labels can be specified.
 The dataset can then be automatically sorted using either `Sort_to_BIDS.py`, which will sort the dataset into the [BIDS format](https://bids.neuroimaging.io/) (and thus will only sort the NIFTI files), or `Rename_folders_from_predictions.py`, which will sort the whole DICOM dataset.
 
 When sorting to BIDS format derived images and perfusion weighted images are not sort, as they are not supported by BIDS.
