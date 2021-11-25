@@ -86,21 +86,13 @@ RUN apt-get update \
 # ###############
 
 RUN apt-get update \
-    && DEBIAN_FRONTEND="noninteractive" apt-get install -y \
+    && DEBIAN_FRONTEND="noninteractive" apt-get install --no-install-recommends -y \
     git\
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/Svdvoort/DeepDicomSort.git
-
-RUN cd /DeepDicomSort \
-    && pip3 install -r requirements.txt
-
-###### REMOVE REMOVE
-RUN cd /DeepDicomSort \
-    && git checkout docker
-#### REMOVE REMOVE
-
-RUN cd /DeepDicomSort \
+RUN git clone https://github.com/Svdvoort/DeepDicomSort.git \\
+    && cd /DeepDicomSort \
+    && pip3 install -r requirements.txt \
     && rm config.yaml \
     && mv Docker/config.yaml . \
     && mv Docker/run_pipeline.sh . \
