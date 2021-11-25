@@ -90,7 +90,7 @@ RUN apt-get update \
     git\
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/Svdvoort/DeepDicomSort.git \\
+RUN git clone https://github.com/Svdvoort/DeepDicomSort.git \
     && cd /DeepDicomSort \
     && pip3 install -r requirements.txt \
     && rm config.yaml \
