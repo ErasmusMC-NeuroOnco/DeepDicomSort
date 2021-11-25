@@ -9,6 +9,8 @@ If you use DeepDicomSort in your work, please cite the following: van der Voort,
 
 
 
+If you want to use a docker image please see the end of this section.
+If you want to install manually please continue reading.
 
 
 ## Set-up
@@ -56,3 +58,31 @@ The dataset can then be automatically sorted using either `Sort_to_BIDS.py`, whi
 
 When sorting to BIDS format derived images and perfusion weighted images are not sort, as they are not supported by BIDS.
 `Rename_folders_from_predictions.py` uses a structure used internally at our institute, but it can also be used as an inspiration for your own structure.
+
+
+## Running using docker
+
+If you do not want to set up things manually you can use a docker that comes with all the required dependencies pre-installed.
+Running DeepDicomSort using docker is easy and requires only two setup steps:
+
+### Getting the DeepDicomSort docker
+The DeepDicomSort docker can be obtained from dockerhub using the following command: `docker pull svdvoort/dds:1.0.0`.
+
+### Preparing data
+To prepare the data for the docker first create a root directory, for example `/home/user/deepdicomsort`.
+In this root directory you need to create on directory called `DICOM` (so in this example `/home/user/deepdicomsort/DICOM`), in which you put all DICOM data to be sorted.
+You also need to create an output folder, which you can name whatever you want, for example `/home/user/deepdicomsort/out`.
+
+You are now done with the setup, and are ready to run the docker
+
+### Running the DeepDicomSort docker
+
+Running the docker is done using one simple command:
+
+`docker run -u $UID:$GROUPS -v "<root_folder>:/input/" -v "<output_folder>:/output/" svdvoort/dds:1.0.0`
+
+Where `<root_folder>` is the root folder you created before, and `<output_folder>` is the output folder you created.
+So using the example from above the command would be:
+
+`docker run -u $UID:$GROUPS -v "/home/user/deepdicomsort/:/input/" -v "/home/user/deepdicomsort/out/:/output/" svdvoort/dds:1.0.0`
+

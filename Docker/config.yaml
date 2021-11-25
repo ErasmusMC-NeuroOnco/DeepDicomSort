@@ -1,0 +1,25 @@
+preprocessing:
+    root_dicom_folder: /input/DICOM/
+    dcm2niix_bin: /usr/local/bin/dcm2niix
+    fslreorient2std_bin: /usr/bin/fsl5.0-fslreorient2std
+    fslval_bin: /usr/bin/fsl5.0-fslval
+
+data_preparation:
+    image_size_x: 256
+    image_size_y: 256
+    image_size_z: 25
+
+training:
+    train_label_file: /path/to/train/label/file.txt
+    output_folder: /path/to/output/folder/
+
+testing:
+    test_label_file: /input/DATA/labels.txt
+    output_folder: /output/
+
+post_processing:
+    prediction_file: /output/Predictions_model_all_brain_tumor_data.csv
+
+network:
+    batch_size: 32
+    nb_epoch: 100
