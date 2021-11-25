@@ -64,10 +64,21 @@ RUN apt-get update \
 ## Install fsl
 ###############
 
+RUN apt-get update \
+    && DEBIAN_FRONTEND="noninteractive" apt-get install --no-install-recommends -y\
+    gnupg\
+    && rm -rf /var/lib/apt/lists/*
+
+
+
+RUN wget -O- http://neuro.debian.net/lists/focal.us-tn.full | tee /etc/apt/sources.list.d/neurodebian.sources.list \
+    && apt-key adv --recv-keys --keyserver hkps://keyserver.ubuntu.com 0xA5D32F012649A5A9
+
 
 RUN apt-get update \
     && DEBIAN_FRONTEND="noninteractive" apt-get install --no-install-recommends -y \
     fsl-5.0-core \
+    fsl-atlases \
     && rm -rf /var/lib/apt/lists/*
 
 # ###############
@@ -79,26 +90,20 @@ RUN apt-get update \
     git\
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/Svdvoort/DeepDicomSort.git \
-    && cd DeepDicomSort \
+RUN git clone https://github.com/Svdvoort/DeepDicomSort.git
+
+RUN cd /DeepDicomSort \
     && pip3 install -r requirements.txt
 
-#     && mv Data/brain_mask.nii.gz /DATA/ATLAS/ \
-#     && mkdir -p /DATA/MODEL/ \
-#     && mv Data/config_prognosais_model.yaml /DATA/MODEL/ \
-#     && mv Scripts/custom_definitions.py /DATA/MODEL/\
-#     && cd Trained_models \
-#     && tar -xzvf prognosais_model.tar.gz \
-#     && cp -r prognosais_model/  /DATA/MODEL/prognosais_model/ \
-#     && rm prognosais_model.tar.gz \
-#     && rm -r prognosais_model/ \
-#     && cd .. \
-#     && mv Docker/run_pipeline.sh / \
-#     && chmod +x /run_pipeline.sh \
-#     && mv Scripts/get_predictions.py / \
-#     && mv Scripts/evaluate_model.py /
+###### REMOVE REMOVE
+RUN cd /DeepDicomSort \
+    && git checkout docker
+#### REMOVE REMOVE
 
-# ENTRYPOINT [ "/run_pipeline.sh" ]
+RUN cd /DeepDicomSort \
+    && rm config.yaml \
+    && mv Docker/config.yaml . \
+    && mv Docker/run_pipeline.sh . \
+    && chmod +x run_pipeline.sh
 
-
-
+ENTRYPOINT [ "/DeepDicomSort/run_pipeline.sh" ]

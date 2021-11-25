@@ -1,5 +1,5 @@
 preprocessing:
-    root_dicom_folder: /input/
+    root_dicom_folder: /input/DICOM/
     dcm2niix_bin: /usr/local/bin/dcm2niix
     fslreorient2std_bin: /usr/bin/fsl5.0-fslreorient2std
     fslval_bin: /usr/bin/fsl5.0-fslval
@@ -18,7 +18,7 @@ testing:
     output_folder: /output/
 
 post_processing:
-    prediction_file: /path/to/prediction/file.csv
+    prediction_file: /output/Predictions_model_all_brain_tumor_data.csv
 
 network:
     batch_size: 32
