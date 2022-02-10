@@ -29,7 +29,7 @@ six==1.10.0
 sklearn==0.0
 soupsieve==1.9.1
 tensorboard==1.12.2
-tensorflow==1.12.3
+tensorflow==2.5.3
 termcolor==1.1.0
 virtualenv==16.0.0
 Werkzeug==0.14.1
