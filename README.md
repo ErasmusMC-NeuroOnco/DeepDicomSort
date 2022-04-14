@@ -40,18 +40,18 @@ After this, go to the preprocessing folder and run `python3 preprocessing_pipeli
 
 Once the pre-processing is done, the config.yaml file can be updated with the label file that has been produced (in the DICOM root folder, under a directory called 'DATA'). If you just want to run DeepDicomSort to make a prediction, only the testing settings need to be updated.
 After updating the testing settings, one can then run `python3 predict_from_CNN.py` which will produce a file with the predicted class for each scan.
-The label corresponding to each scan type is shown in the table below:
+The label corresponding to each scan type is shown in the table below. The leftmost column is the label as predicted directly by the CNN if you use the CNN directly. The second column is the label as is provided in the predictions file, where +1 has been added to each label to make them range from 1 up to and including 8.
 
-| Label  | Scan type |
-| ------------- | ------------- |
-| 0  | pre-contrast T1-weighted  |
-| 1  | post-contrast T1-weighted  |
-| 2  | T2 weighted |
-| 3  | Proton density weighted |
-| 4  | T2 weighted-FLAIR |
-| 5  | Diffusion weighted imaging |
-| 6  | Derived imaging |
-| 7  | Perfusion weighted-DSC|
+| Label prediction by CNN  | Label in prediction file | Scan type |
+| ------------- | -------------  | ------------- |
+| 0  | 1 | pre-contrast T1-weighted  |
+| 1  | 2 | post-contrast T1-weighted  |
+| 2  | 3 | T2 weighted |
+| 3  | 4 | Proton density weighted |
+| 4  | 5 | T2 weighted-FLAIR |
+| 5  | 6 | Diffusion weighted imaging |
+| 6  | 7 | Derived imaging |
+| 7  | 8 | Perfusion weighted-DSC|
 
 Once testing is the done, in the config the file with the predicted labels can be specified.
 The dataset can then be automatically sorted using either `Sort_to_BIDS.py`, which will sort the dataset into the [BIDS format](https://bids.neuroimaging.io/) (and thus will only sort the NIFTI files), or `Rename_folders_from_predictions.py`, which will sort the whole DICOM dataset.
