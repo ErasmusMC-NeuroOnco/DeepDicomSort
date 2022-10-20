@@ -20,7 +20,7 @@ DeepDicomSort requires the following:
 - fsl 5.0 (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation)
 
 After install python 3.6.7, install the required packages:
-`pip -r install requirements.txt`
+`pip install -r requirements.txt`
 
 The location of the dcm2niix bin and fsl5.0-fslreorient2std bin can be set in the config.yaml file.
 
