@@ -30,7 +30,7 @@ DeepDicomSort can also run using Python 3.7.x, although this is not the original
 
 If you want to use Python 3.7.x you need to use a different requirements file as tensorflow version 1.12.X is not available in Python 3.7.x. To install the correct requirements:
 
-`pip -r install requirements_python37.txt`
+`pip install -r requirements_python37.txt`
 
 ## Running DeepDicomSort
 
