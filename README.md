@@ -85,3 +85,31 @@ Where `<root_folder>` is the root folder you created before, and `<output_folder
 So using the example from above the command would be:
 
 `docker run -u $UID:$GROUPS -v "/home/user/deepdicomsort/:/input/" -v "/home/user/deepdicomsort/out/:/output/" svdvoort/dds:1.0.0`
+
+## Scan data
+
+We have released the data regarding the scan types that have been used for the construction in the algorithm.
+This data also includes the scan types of some scans that were in the end not used in this work, but which can still be valuable for other researchers.
+This data can be found in the `Data/` folder, where there is a file for the train set(`TCIA_scan_types_UID_train.csv`) and for the test set (`TCIA_scan_types_UID_test.csv`).
+These files contains the following data:
+
+- `TCIA project name`: The project name of the data on TCIA
+- `TCIA subject ID`: The identifier of the subject on TCIA
+- `Series UID`: The series instance UID extracted from DICOM tag (0020,000E)
+- `Series ID`: The series number extracted from DICOM tag (0020,0011)
+- `Scan type`: The scan type as identified manually (so not by the algorithm!). See the below table for explanation
+- `Scan direction`: The scan direction as based on the direction matrix
+
+The following scan types are identified:
+
+| Scan type   | Meaning                                 |
+| ----------- | --------------------------------------- |
+| T1          | Pre-contrast T1-weighted                |
+| T1GD        | Post-contrast T1-weighted               |
+| T2          | T2-weighted                             |
+| FLAIR       | T2-weighted FLAIR                       |
+| PD          | Proton Density-weighted                 |
+| DWI_DWI     | Diffusion weighted scan                 |
+| DWI_DERIVED | Scan derived from DWI (for example ADC) |
+| PWI_DSC     | DSC-type perfusion scan                 |
+| PWI_DCE     | DCE-type perfusion scan                 |
