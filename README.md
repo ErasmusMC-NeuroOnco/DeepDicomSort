@@ -113,3 +113,21 @@ The following scan types are identified:
 | DWI_DERIVED | Scan derived from DWI (for example ADC) |
 | PWI_DSC     | DSC-type perfusion scan                 |
 | PWI_DCE     | DCE-type perfusion scan                 |
+
+### TCIA projects
+
+The following TCIA projects are included in this data:
+
+#### Train set
+
+- [Brain-Tumor-Progression](https://doi.org/10.7937/K9/TCIA.2018.15quzvnb)
+- [IvyGAP](https://doi.org/10.7937/K9/TCIA.2016.XLwaN6nL)
+- [LGG-1p19qDeletion](https://doi.org/10.7937/K9/TCIA.2017.DWEHTZ9V)
+- [TCGA-GBM](https://doi.org/10.7937/K9/TCIA.2016.RNYFUYE9)
+- [TCGA-LGG](https://doi.org/10.7937/K9/TCIA.2016.L4LTD3TK)
+
+#### Test set
+
+- [CPTAC-GBM](https://doi.org/10.7937/K9/TCIA.2018.3RJE41Q1)
+- [REMBRANDT](https://doi.org/10.7937/K9/TCIA.2015.588OZUZB)
+- [RIDER NEURO MRI](https://doi.org/10.7937/K9/TCIA.2015.VOSN3HN1)
